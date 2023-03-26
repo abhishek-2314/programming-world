@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-pd95fli@-o^n&+sqniavm+zi#fgx3w1m)__si923b5l794mtq@'
-SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -138,7 +137,8 @@ LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 
 import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
